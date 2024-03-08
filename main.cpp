@@ -42,6 +42,8 @@ int main() {
                         std::stoi(studentInfo[5]), std::stoi(studentInfo[6]), std::stoi(studentInfo[7]),
                         studentInfo[8]);
 
+// NOW TESTING THE PRINT FUNCTIONS
+
     // Printing all students
     classRoster.printAll();
 

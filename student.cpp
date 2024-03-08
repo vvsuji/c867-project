@@ -1,5 +1,3 @@
-// student.cpp
-
 #include "student.h"
 #include <iostream>
 

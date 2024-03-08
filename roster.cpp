@@ -1,5 +1,3 @@
-// roster.cpp
-
 #include "roster.h"
 #include <iostream>
 
@@ -19,9 +17,16 @@ Roster::~Roster() {
 }
 
 // Other methods implementation
-void Roster::add(std::string studentID, std::string firstName, std::string lastName, std::string emailAddress, int age, int daysInCourse1, int daysInCourse2, int daysInCourse3, DegreeProgram degreeProgram) {
+void Roster::add(std::string studentID, std::string firstName, std::string lastName, std::string emailAddress, int age, int daysInCourse1, int daysInCourse2, int daysInCourse3, std::string degreeProgram) {
     int daysInCourse[3] = {daysInCourse1, daysInCourse2, daysInCourse3};
-    classRosterArray[++lastIndex] = new Student(studentID, firstName, lastName, emailAddress, age, daysInCourse1, daysInCourse2, daysInCourse3, degreeProgram);
+    DegreeProgram degreeProgramEnum = DegreeProgram::SOFTWARE;
+    if (degreeProgram == "NETWORK") {
+        degreeProgramEnum = DegreeProgram::NETWORK;
+    };
+    if (degreeProgram == "SECURITY") {
+        degreeProgramEnum = DegreeProgram::SECURITY;
+    }
+    classRosterArray[++lastIndex] = new Student(studentID, firstName, lastName, emailAddress, age, daysInCourse1, daysInCourse2, daysInCourse3, degreeProgramEnum);
 }
 
 void Roster::remove(std::string studentID) {

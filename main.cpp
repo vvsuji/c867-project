@@ -4,7 +4,6 @@
 #include <string>
 #include "roster.h"
 
-// Splits a string by a delimiter (',') into a vector of substrings.
 std::vector<std::string> splitStudentData(const std::string& data) {
     std::vector<std::string> tokens;
     std::istringstream stream(data);
@@ -27,15 +26,13 @@ int main() {
         "A2,Suzan,Erickson,Erickson_1990@gmailcom,19,50,30,40,NETWORK",
         "A3,Jack,Napoli,The_lawyer99@yahoo.com,19,20,40,33,SOFTWARE",
         "A4,Erin,Black,Erin.black@comcast.net,22,50,58,40,SECURITY",
-        "A5,SUJI,FALCON,suji.falcon@gmail.com,10,15,21,23,SOFTWARE"
+        "A5,SUJI,FALCON,suji.falcon@gmail.com,25,15,21,23,SOFTWARE"
     };
     
     Roster classRoster;
 
-    // Add students to the roster from provided data.
     for (const auto& entry : studentData) {
         auto info = splitStudentData(entry);
-        // Ensure there are exactly 9 elements (ID, FirstName, LastName, Email, Age, 3xScores, Program)
         if (info.size() == 9) {
             classRoster.add(info[0], info[1], info[2], info[3], std::stoi(info[4]),
                             std::stoi(info[5]), std::stoi(info[6]), std::stoi(info[7]),
@@ -54,7 +51,10 @@ int main() {
     classRoster.printByDegreeProgram(SOFTWARE);
 
     classRoster.remove("A3");
-    classRoster.remove("A3"); // Expected: Error message, student not found.
+    classRoster.remove("A3"); // EXPECTED ERROR MESSAGE "THE STUDENT WITH ID: A3 WAS NOT FOUND."
+
+    classRoster.printAll();
+
 
     return 0;
 }

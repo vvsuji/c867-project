@@ -56,11 +56,15 @@ void Student::Print() const {
     std::cout << this->studentID << '\t'
               << "First Name: " << this->firstName << '\t'
               << "Last Name: " << this->lastName << '\t'
+              << "Email: " << this->emailAddress << '\t'
               << "Age: " << this->age << '\t'
               << "daysInCourse: {" << this->daysInCourse[0] << ", "
                                   << this->daysInCourse[1] << ", "
                                   << this->daysInCourse[2] << "} \t"
-              << "Degree Program: " << this->degreeProgram << std::endl;
+              << "Degree Program: " << (const char *[]) {
+                                            "SECURITY",
+                                            "NETWORK", 
+                                            "SOFTWARE",
+                                    }[this->degreeProgram] << std::endl;
 }
 
-// Note: We will need to define a function to convert DegreeProgram enum to a printable string.

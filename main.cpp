@@ -51,9 +51,9 @@ int main() {
     classRoster.printByDegreeProgram(SOFTWARE);
 
     classRoster.remove("A3");
+    classRoster.printAll();
     classRoster.remove("A3"); // EXPECTED ERROR MESSAGE "THE STUDENT WITH ID: A3 WAS NOT FOUND."
 
-    classRoster.printAll();
 
 
     return 0;

@@ -24,7 +24,7 @@ Student::Student(std::string setStudentID, std::string setFirstName, std::string
     this->degreeProgram = setDegreeProgram;
 }
 
-// Destructor
+// Destructor implementation
 Student::~Student() {
     // Empty for now since we're not dynamically allocating memory
 }

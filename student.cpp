@@ -12,16 +12,16 @@ Student::Student() {
     this->degreeProgram = DegreeProgram::SOFTWARE;
 }
 
-Student::Student(std::string studentID, std::string firstName, std::string lastName, std::string emailAddress, int age, int daysInCourse1, int daysInCourse2, int daysInCourse3, DegreeProgram degreeProgram) {
-    this->studentID = studentID;
-    this->firstName = firstName;
-    this->lastName = lastName;
-    this->emailAddress = emailAddress;
-    this->age = age;
+Student::Student(std::string setStudentID, std::string setFirstName, std::string setLastName, std::string setEmailAddress, int setAge, int daysInCourse1, int daysInCourse2, int daysInCourse3, DegreeProgram setDegreeProgram) {
+    this->studentID = setStudentID;
+    this->firstName = setFirstName;
+    this->lastName = setLastName;
+    this->emailAddress = setEmailAddress;
+    this->age = setAge;
     this->daysInCourse[0] = daysInCourse1;
     this->daysInCourse[1] = daysInCourse2;
     this->daysInCourse[2] = daysInCourse3;
-    this->degreeProgram = degreeProgram;
+    this->degreeProgram = setDegreeProgram;
 }
 
 // Destructor
@@ -40,10 +40,10 @@ DegreeProgram Student::GetDegreeProgram() const { return degreeProgram; }
 
 // Mutators (setters) implementation
 void Student::SetStudentID(std::string ID) { this->studentID = ID; }
-void Student::SetFirstName(std::string firstName) { this->firstName = firstName; }
-void Student::SetLastName(std::string lastName) { this->lastName = lastName; }
-void Student::SetEmailAddress(std::string emailAddress) { this->emailAddress = emailAddress; }
-void Student::SetAge(int age) { this->age = age; }
+void Student::SetFirstName(std::string newFirstName) { this->firstName = newFirstName; }
+void Student::SetLastName(std::string newLastName) { this->lastName = newLastName; }
+void Student::SetEmailAddress(std::string newEmailAddress) { this->emailAddress = newEmailAddress; }
+void Student::SetAge(int newAge) { this->age = newAge; }
 void Student::SetDaysInCourse(int daysInCourse1, int daysInCourse2, int daysInCourse3) {
     this->daysInCourse[0] = daysInCourse1;
     this->daysInCourse[1] = daysInCourse2;
@@ -53,6 +53,12 @@ void Student::SetDegreeProgram(DegreeProgram dp) { this->degreeProgram = dp; }
 
 // print() to print specific student data
 void Student::Print() const {
+    std::string degreePrograms[] = {
+        "SECURITY",
+        "NETWORK",
+        "SOFTWARE"
+    };
+
     std::cout << this->studentID << '\t'
               << "First Name: " << this->firstName << '\t'
               << "Last Name: " << this->lastName << '\t'
@@ -61,10 +67,6 @@ void Student::Print() const {
               << "daysInCourse: {" << this->daysInCourse[0] << ", "
                                   << this->daysInCourse[1] << ", "
                                   << this->daysInCourse[2] << "} \t"
-              << "Degree Program: " << (const char *[]) {
-                                            "SECURITY",
-                                            "NETWORK", 
-                                            "SOFTWARE",
-                                    }[this->degreeProgram] << std::endl;
+              << "Degree Program: " << degreePrograms[this->degreeProgram] << std::endl;
 }
 

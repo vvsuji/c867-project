@@ -19,7 +19,7 @@ int main() {
               << "Programming Language: C++" << std::endl
               << "Student ID: #011957047" << std::endl
               << "Student Name: Suji Falcon" << std::endl << std::endl;
-    
+
     // Sample student data.
     const std::string studentData[] = {
         "A1,John,Smith,John1989@gm ail.com,20,30,35,40,SECURITY",
@@ -28,7 +28,7 @@ int main() {
         "A4,Erin,Black,Erin.black@comcast.net,22,50,58,40,SECURITY",
         "A5,SUJI,FALCON,suji.falcon@gmail.com,25,15,21,23,SOFTWARE"
     };
-    
+
     Roster classRoster;
 
     for (const auto& entry : studentData) {
@@ -52,9 +52,8 @@ int main() {
 
     classRoster.remove("A3");
     classRoster.printAll();
-    classRoster.remove("A3"); // EXPECTED ERROR MESSAGE "THE STUDENT WITH ID: A3 WAS NOT FOUND."
 
-
+    classRoster.remove("A3"); // Expected error: "The student with ID: A3 was not found."
 
     return 0;
 }
